@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 import newChat from "../images/newchat.png";
 const handleChange = (e: any) => {
-  console.log("VALUE PASS e", e.currentTarget.value);
+  console.log("VALUE PASS e :", e.target.value);
 };
 const ModalChat = () => {
   const [show, setShow] = useState(false);

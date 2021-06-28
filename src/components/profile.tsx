@@ -1,12 +1,11 @@
 import * as React from "react";
-import { Component } from "react";
 import userImage from "../images/thumbnail.png";
 
 export interface UserProfileProps {}
 
 const UserProfile: React.SFC<UserProfileProps> = () => {
   return (
-    <a className="navbar-brand" href="#">
+    <a className="navbar-brand" href="/">
       <div className="profile-header-img">
         <img
           className="rounded-circle"

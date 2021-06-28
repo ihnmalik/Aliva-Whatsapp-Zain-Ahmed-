@@ -9,6 +9,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
+  overflow: hidden;
 }
 
 code {
@@ -84,6 +85,13 @@ code {
 }
 .chat-list li p {
   color: #919292;
+}
+.chat-list a {
+  color: black;
+}
+.chat-list a:hover {
+  text-decoration: none;
+  color: black;
 }
 .left-section {
   height: 82vh;
@@ -197,4 +205,133 @@ code {
 }
 .modal-dialog {
   width: 280px !important;
+}
+.userIcon {
+  float: left;
+  background: #aeaeae;
+  width: 40px;
+  height: 40px;
+  border-radius: 27px;
+  margin-top: 4px;
+  margin-right: 20px;
+  text-align: center;
+}
+.userLastseen {
+  text-align: left;
+}
+.userLastseen p {
+  margin-bottom: 11px;
+}
+.chat-user-details span {
+  color: white;
+  font-weight: bold;
+  position: relative;
+  top: 8px;
+}
+.right-chat-section {
+  height: 100vh;
+  padding: 0 !important;
+  margin-left: -15px;
+}
+
+.left-section .navbar {
+  border-right: 1px solid #cbcbcb;
+}
+.navChatBoxDD .dropdown-menu {
+  left: -147px !important;
+  width: 168px !important;
+}
+.chatBoxBG {
+  background-image: url(images/chat-bg.png);
+  height: 82vh;
+  overflow-y: scroll;
+}
+.send-message-input input {
+  border-radius: 20px;
+}
+.fa-smile-o,
+.fa-paperclip {
+  color: #565252;
+  cursor: pointer;
+  padding-top: 4px;
+}
+.fa-smile-o {
+  margin-left: 33px;
+}
+.fa-paperclip {
+  margin-left: 31px;
+}
+.sendMsgWrap {
+  padding-top: 9px;
+  background-color: #efeff0 !important;
+  overflow: hidden;
+}
+.fa-microphone {
+  color: #565252;
+  cursor: pointer;
+  padding-top: 4px;
+}
+.other-user-msg {
+  display: inline-block;
+  background: white;
+  margin-left: 70px;
+  padding: 16px;
+  border-radius: 15px;
+  min-width: 135px;
+  margin-top: 25px;
+  font-size: 14px;
+  max-width: 390px;
+  padding-top: 4px;
+}
+.other-user-msg span {
+  font-size: 12px;
+  color: #a9a8a8;
+  position: relative;
+  top: 18px;
+  right: 0px;
+  float: right;
+}
+
+.my-msg {
+  float: right;
+  background: #b9f7bb;
+  margin-right: 70px;
+  padding: 16px;
+  border-radius: 15px;
+  min-width: 135px;
+  margin-top: 25px;
+  font-size: 14px;
+  max-width: 390px;
+  padding-top: 4px;
+}
+.my-msg span {
+  font-size: 12px;
+  color: #a9a8a8;
+  position: relative;
+  top: 18px;
+  right: 0px;
+  float: right;
+}
+.chat-messages {
+  width: 100% !important;
+  clear: both;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(175, 175, 175);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(124, 124, 124);
 }

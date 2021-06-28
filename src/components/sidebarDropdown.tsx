@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Component } from "react";
 
 export interface SidebarDropdownMenuProps {}
 
@@ -20,19 +19,19 @@ const SidebarDropdownMenu: React.FC<SidebarDropdownMenuProps> = () => {
       </svg>
 
       <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a className="dropdown-item" href="#">
+        <a className="dropdown-item" href="/">
           Profile
         </a>
-        <a className="dropdown-item" href="#">
+        <a className="dropdown-item" href="/">
           Archived
         </a>
-        <a className="dropdown-item" href="#">
+        <a className="dropdown-item" href="/">
           Starred
         </a>
-        <a className="dropdown-item" href="#">
+        <a className="dropdown-item" href="/">
           Settings
         </a>
-        <a className="dropdown-item" href="#">
+        <a className="dropdown-item" href="/">
           Logout
         </a>
       </div>

@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Component } from "react";
 import connectedImage from "../images/whatsapp-connect.jpg";
 
 export interface ConnectAreaProps {}
@@ -26,7 +25,11 @@ const ConnectArea: React.FC<ConnectAreaProps> = () => {
         <p style={{ marginBottom: 0, color: "#b5b6b7" }}>
           WhatsApp is available for Windows.
         </p>
-        <a target="_blank" href="https://www.whatsapp.com/download">
+        <a
+          target="_blank"
+          rel="noreferrer"
+          href="https://www.whatsapp.com/download"
+        >
           Get it here.
         </a>
       </div>
