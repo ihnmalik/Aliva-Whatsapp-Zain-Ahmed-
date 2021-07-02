@@ -3,7 +3,7 @@ import userImage from "../images/thumbnail.png";
 
 export interface UserProfileProps {}
 
-const UserProfile: React.SFC<UserProfileProps> = () => {
+const UserProfile: React.FC<UserProfileProps> = () => {
   return (
     <a className="navbar-brand" href="/">
       <div className="profile-header-img">

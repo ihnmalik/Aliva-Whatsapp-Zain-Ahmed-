@@ -5,19 +5,30 @@ import ChatBox from "./chatBox";
 import SendMessagesInput from "./sendMessageInput";
 
 export interface ChatAreaProps {
-  chatList: any;
   chatTitle: string;
+  newMessage: any;
+  updateChat: (arg0: string) => void;
 }
 
-const ChatArea: React.FC<ChatAreaProps> = ({ chatTitle }) => {
+const ChatArea: React.FC<ChatAreaProps> = ({
+  chatTitle,
+  newMessage,
+  updateChat,
+}) => {
+  const updateMsgBox = (msg: any) => {
+    updateChat(msg);
+  };
   return (
     <div className="col-md-8 right-chat-section">
       <nav className="navbar navbar-light bg-light">
         <UserDetails chatTitle={chatTitle} />
         <NavbarChatBoxDropdown />
       </nav>
-      <ChatBox />
-      <SendMessagesInput />
+      <ChatBox newMessage={newMessage} />
+      <SendMessagesInput
+        enterMessage={newMessage}
+        updateMsgBox={updateMsgBox}
+      />
     </div>
   );
 };

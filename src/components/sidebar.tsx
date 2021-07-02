@@ -1,26 +1,36 @@
-import React, { useState } from "react";
+import * as React from "react";
 import ModalChat from "./modal";
 import SidebarDropdownMenu from "./sidebarDropdown";
 import SearchChatList from "./searchChatRoom";
 import UserProfile from "./profile";
 import ChatRoomList from "./chatRoomsList";
-import { SearchCustom } from "../common/commonFunctions";
-import { ChatData } from "../chatRoom/appData";
 
 export interface SideBarProps {
   getChatTitle: (arg0: string) => void;
+  getChat: (arg0: string) => void;
+  chatList: any;
+  searhRoomResult: (arg0: string) => void;
+  addNewChatRoom: (arg0: string) => void;
 }
 
-const chatList = ChatData();
-
-const SideBar: React.FC<SideBarProps> = ({ getChatTitle }) => {
-  const [searchResults, setSearchResults] = useState(chatList);
-
+const SideBar: React.FC<SideBarProps> = ({
+  getChatTitle,
+  getChat,
+  chatList,
+  searhRoomResult,
+  addNewChatRoom,
+}) => {
   const handleChange = (value: string) => {
-    setSearchResults(SearchCustom(value, chatList));
+    searhRoomResult(value);
   };
   const fetchTitle = (value: string) => {
     getChatTitle(value);
+  };
+  const viewChat = (newChat: any) => {
+    getChat(newChat);
+  };
+  const updateChatList = (chatRoom: any) => {
+    addNewChatRoom(chatRoom);
   };
   return (
     <>
@@ -31,11 +41,18 @@ const SideBar: React.FC<SideBarProps> = ({ getChatTitle }) => {
           </div>
           <div className="col-md-9 nav-dd right-section">
             <SidebarDropdownMenu />
-            <ModalChat />
+            <ModalChat
+              createChatRoom={chatList}
+              updateChatList={updateChatList}
+            />
           </div>
         </nav>
         <SearchChatList onSearch={handleChange} />
-        <ChatRoomList sideBarList={searchResults} chatTitle={fetchTitle} />
+        <ChatRoomList
+          sideBarList={chatList}
+          chatTitle={fetchTitle}
+          viewChat={viewChat}
+        />
       </div>
     </>
   );

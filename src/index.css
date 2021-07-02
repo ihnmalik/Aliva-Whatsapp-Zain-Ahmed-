@@ -78,6 +78,7 @@ code {
   border-bottom: 1px solid #cfcfcf;
   padding-left: 15px;
   padding-top: 15px;
+  height: 78px;
   cursor: pointer;
 }
 .chat-list li:hover {
@@ -85,6 +86,10 @@ code {
 }
 .chat-list li p {
   color: #919292;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 15px;
 }
 .chat-list a {
   color: black;
@@ -334,4 +339,16 @@ code {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(124, 124, 124);
+}
+.box-alert {
+  background-color: #fdf4c4;
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-bottom: 15px !important;
+  margin: auto;
+  margin-top: 20px;
 }

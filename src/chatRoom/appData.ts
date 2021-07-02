@@ -1,103 +1,201 @@
 interface Type {
-  _id: string;
+  _id: number;
   title: string;
-  lastMsg: string;
-  msgTime: string;
+  lastMsg?: string;
+  msgTime?: string;
+  chat?: Chat;
 }
-interface Data {
-  [dataChat: number]: Type;
+interface Chat {
+  [chat: number]: ChatDetails;
 }
+interface ChatDetails {
+  userId?: number;
+  msg?: string;
+}
+// interface Data {
+//   // [dataChat: number]: Type;
+// }
 
-const dataChat: Data = [
+const dataChat: Array<Type> = [
   {
-    _id: "001",
+    _id: 1,
     title: "Test Chat Room",
     lastMsg: "This is a test message",
     msgTime: "08:10 PM",
+    chat: [
+      {
+        userId: 1,
+        msg: "First Test Message",
+      },
+    ],
   },
   {
-    _id: "002",
+    _id: 2,
+    title: "Test Chat Room",
+    lastMsg: "This is a test message",
+    msgTime: "08:10 PM",
+    chat: [
+      {
+        userId: 2,
+        msg: "first message",
+      },
+    ],
+  },
+  {
+    _id: 3,
     title: "User 1",
     lastMsg: "This is a test message",
     msgTime: "08:10 PM",
+    chat: [
+      {
+        userId: 3,
+        msg: "first message",
+      },
+    ],
   },
   {
-    _id: "003",
+    _id: 4,
     title: "New User",
     lastMsg: "This is a test message",
     msgTime: "08:10 PM",
+    chat: [
+      {
+        userId: 4,
+        msg: "first message",
+      },
+    ],
   },
   {
-    _id: "004",
+    _id: 5,
     title: "Chat room xvz",
     lastMsg: "This is a test message",
     msgTime: "08:10 PM",
+    chat: [
+      {
+        userId: 5,
+        msg: "first message",
+      },
+    ],
   },
   {
-    _id: "005",
+    _id: 6,
     title: "Lorem Ipsum",
+    chat: [
+      {
+        userId: 6,
+        msg: "first message",
+      },
+    ],
     lastMsg: "This is a test message",
     msgTime: "08:10 PM",
   },
   {
-    _id: "006",
+    _id: 7,
     title: "New Chat Room",
     lastMsg: "This is a test message",
     msgTime: "08:10 PM",
+    chat: [
+      {
+        userId: 7,
+        msg: "first message",
+      },
+    ],
   },
   {
-    _id: "007",
+    _id: 8,
     title: "AlivaTech",
     lastMsg: "This is a test message",
     msgTime: "08:10 PM",
+    chat: [
+      {
+        userId: 8,
+        msg: "first message",
+      },
+    ],
   },
   {
-    _id: "008",
+    _id: 9,
     title: "abc User",
     lastMsg: "This is a test message",
     msgTime: "08:10 PM",
+    chat: [
+      {
+        userId: 9,
+        msg: "first message",
+      },
+    ],
   },
   {
-    _id: "009",
+    _id: 10,
     title: "Test Chat Room",
     lastMsg: "This is a test message",
     msgTime: "08:10 PM",
+    chat: [
+      {
+        userId: 10,
+        msg: "first message",
+      },
+    ],
   },
   {
-    _id: "011",
-    title: "User abc",
-    lastMsg: "This is a test message",
-    msgTime: "08:10 PM",
-  },
-  {
-    _id: "012",
+    _id: 11,
     title: "abc xyz",
     lastMsg: "This is a test message",
     msgTime: "08:10 PM",
+    chat: [
+      {
+        userId: 11,
+        msg: "first message",
+      },
+    ],
   },
   {
-    _id: "013",
+    _id: 12,
     title: "Test Chat Room",
     lastMsg: "This is a test message",
     msgTime: "08:10 PM",
+    chat: [
+      {
+        userId: 12,
+        msg: "first message",
+      },
+    ],
   },
   {
-    _id: "014",
+    _id: 13,
     title: "Test Chat Room",
     lastMsg: "This is a test message",
     msgTime: "08:10 PM",
+    chat: [
+      {
+        userId: 13,
+        msg: "first message",
+      },
+    ],
   },
   {
-    _id: "015",
+    _id: 14,
     title: "Test Chat Room",
     lastMsg: "This is a test message",
     msgTime: "08:10 PM",
+    chat: [
+      {
+        userId: 14,
+        msg: "first message",
+      },
+    ],
   },
   {
-    _id: "016",
+    _id: 15,
     title: "Test Chat Room",
     lastMsg: "This is a test message",
     msgTime: "08:10 PM",
+    chat: [
+      {
+        userId: 15,
+        msg: "first message",
+      },
+    ],
   },
 ];
 export function ChatData() {

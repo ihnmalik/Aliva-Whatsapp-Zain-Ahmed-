@@ -1,8 +1,28 @@
 import * as React from "react";
+export interface SendMessagesInputProps {
+  enterMessage: any;
+  updateMsgBox: (arg0: string) => void;
+}
 
-export interface SendMessagesInputProps {}
-
-const SendMessagesInput: React.FC<SendMessagesInputProps> = () => {
+const SendMessagesInput: React.FC<SendMessagesInputProps> = ({
+  enterMessage,
+  updateMsgBox,
+}) => {
+  const handleKeyPress = (e: any) => {
+    const cloneNewMSg = { ...enterMessage };
+    const chatsList = cloneNewMSg.chat;
+    if (e.key === "Enter" && e.target.value !== "") {
+      const chatLength = chatsList.length;
+      const newMessageEntered = e.target.value;
+      const newMsgObj = {
+        userId: chatLength + 1,
+        msg: newMessageEntered,
+      };
+      chatsList.push(newMsgObj);
+      updateMsgBox(cloneNewMSg);
+      e.target.value = "";
+    }
+  };
   return (
     <div className="sendMsgWrap">
       <div className="col-md-2" style={{ float: "left" }}>
@@ -16,6 +36,7 @@ const SendMessagesInput: React.FC<SendMessagesInputProps> = () => {
               type="text"
               className="form-control"
               placeholder="Type a message"
+              onKeyPress={handleKeyPress}
             />
           </div>
         </div>

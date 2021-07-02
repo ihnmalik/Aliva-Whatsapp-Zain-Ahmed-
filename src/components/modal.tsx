@@ -1,17 +1,54 @@
 import React, { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 import newChat from "../images/newchat.png";
-const handleChange = (e: any) => {
-  console.log("VALUE PASS e :", e.target.value);
-};
-const ModalChat = () => {
+
+export interface ModalChatProps {
+  // [createChatRoom: number]: {
+  //   _id: number;
+  //   title: string;
+  //   lastMsg?: string;
+  //   msgTime?: string;
+  // };
+  createChatRoom: any;
+  updateChatList: any;
+}
+
+const ModalChat: React.FC<ModalChatProps> = ({
+  createChatRoom,
+  updateChatList,
+}) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const [chatRoomNameResult, setChatRoomName] = useState("");
+
+  const handleChange = (e: any) => {
+    const value = e.target.value;
+    setChatRoomName(value);
+  };
+  const roomCreated = () => {
+    const copyListObj = [...createChatRoom];
+    const lengthList = copyListObj.length;
+    const newListObj = {
+      _id: lengthList + 1,
+      title: chatRoomNameResult,
+      lastMsg: "",
+      msgTime: "",
+      chat: [
+        {
+          userId: 1,
+          msg: "",
+        },
+      ],
+    };
+    copyListObj.unshift(newListObj);
+    updateChatList(copyListObj);
+    handleClose();
+  };
   return (
-    <>
+    <React.Fragment>
       <img
         src={newChat}
         alt="newchat"
@@ -27,6 +64,7 @@ const ModalChat = () => {
           <div className="form-group">
             <label htmlFor="roomname">Room Name</label>
             <input
+              value={chatRoomNameResult}
               name="roomname"
               id="roomname"
               className="form-control"
@@ -38,13 +76,12 @@ const ModalChat = () => {
           <Button variant="secondary" onClick={handleClose}>
             Cancel
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="primary" onClick={roomCreated}>
             Create
           </Button>
         </Modal.Footer>
       </Modal>
-    </>
+    </React.Fragment>
   );
 };
-
 export default ModalChat;
