@@ -1,13 +1,15 @@
 import * as React from "react";
 import { formatAMPM } from "../common/commonFunctions";
+// import { Type } from "../chatRoom/appData";
+import { ChatDetails } from "../chatRoom/appData";
 
 export interface ChatBoxProps {
   newMessage: any;
 }
 
 const ChatBox: React.FC<ChatBoxProps> = ({ newMessage }) => {
-  let messageChat = newMessage.chat;
-  let i = 1;
+  let messageChat: Array<ChatDetails> = newMessage.chat;
+  let i: number = 1;
   return (
     <div className="chatBoxBG">
       <p className="box-alert">

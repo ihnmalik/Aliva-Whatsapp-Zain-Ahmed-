@@ -3,11 +3,12 @@ import UserDetails from "./navbarChatboxUserDetails";
 import NavbarChatBoxDropdown from "./navbarChatBoxDropdown";
 import ChatBox from "./chatBox";
 import SendMessagesInput from "./sendMessageInput";
+import { Type } from "../chatRoom/appData";
 
 export interface ChatAreaProps {
   chatTitle: string;
-  newMessage: any;
-  updateChat: (arg0: string) => void;
+  newMessage: Type | undefined;
+  updateChat: (arg0: Type) => void;
 }
 
 const ChatArea: React.FC<ChatAreaProps> = ({
@@ -15,7 +16,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({
   newMessage,
   updateChat,
 }) => {
-  const updateMsgBox = (msg: any) => {
+  const updateMsgBox = (msg: Type) => {
     updateChat(msg);
   };
   return (

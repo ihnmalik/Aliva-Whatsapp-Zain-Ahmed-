@@ -1,20 +1,15 @@
-interface Type {
+export interface Type {
   _id: number;
   title: string;
   lastMsg?: string;
   msgTime?: string;
-  chat?: Chat;
+  chat?: Array<ChatDetails>;
 }
-interface Chat {
-  [chat: number]: ChatDetails;
-}
-interface ChatDetails {
+
+export interface ChatDetails {
   userId?: number;
   msg?: string;
 }
-// interface Data {
-//   // [dataChat: number]: Type;
-// }
 
 const dataChat: Array<Type> = [
   {

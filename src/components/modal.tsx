@@ -1,16 +1,11 @@
 import React, { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
 import newChat from "../images/newchat.png";
+import { Type } from "../chatRoom/appData";
 
 export interface ModalChatProps {
-  // [createChatRoom: number]: {
-  //   _id: number;
-  //   title: string;
-  //   lastMsg?: string;
-  //   msgTime?: string;
-  // };
-  createChatRoom: any;
-  updateChatList: any;
+  createChatRoom: Array<Type>;
+  updateChatList: (arg0: Array<Type>) => void;
 }
 
 const ModalChat: React.FC<ModalChatProps> = ({
@@ -25,6 +20,7 @@ const ModalChat: React.FC<ModalChatProps> = ({
   const [chatRoomNameResult, setChatRoomName] = useState("");
 
   const handleChange = (e: any) => {
+    console.log("CHECK TYPE:", e);
     const value = e.target.value;
     setChatRoomName(value);
   };

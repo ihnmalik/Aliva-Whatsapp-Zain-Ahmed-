@@ -4,13 +4,14 @@ import SidebarDropdownMenu from "./sidebarDropdown";
 import SearchChatList from "./searchChatRoom";
 import UserProfile from "./profile";
 import ChatRoomList from "./chatRoomsList";
+import { Type } from "../chatRoom/appData";
 
 export interface SideBarProps {
   getChatTitle: (arg0: string) => void;
-  getChat: (arg0: string) => void;
-  chatList: any;
+  getChat: (arg0: Type) => void;
+  chatList: Array<Type>;
   searhRoomResult: (arg0: string) => void;
-  addNewChatRoom: (arg0: string) => void;
+  addNewChatRoom: (arg0: Array<Type>) => void;
 }
 
 const SideBar: React.FC<SideBarProps> = ({
@@ -26,10 +27,10 @@ const SideBar: React.FC<SideBarProps> = ({
   const fetchTitle = (value: string) => {
     getChatTitle(value);
   };
-  const viewChat = (newChat: any) => {
+  const viewChat = (newChat: Type) => {
     getChat(newChat);
   };
-  const updateChatList = (chatRoom: any) => {
+  const updateChatList = (chatRoom: Array<Type>) => {
     addNewChatRoom(chatRoom);
   };
   return (

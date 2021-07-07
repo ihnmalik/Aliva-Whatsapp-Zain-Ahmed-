@@ -1,13 +1,17 @@
 import * as React from "react";
+import { Type } from "../chatRoom/appData";
+// import { ChatDetails } from "../chatRoom/appData";
 export interface SendMessagesInputProps {
   enterMessage: any;
-  updateMsgBox: (arg0: string) => void;
+  updateMsgBox: (arg0: Type) => void;
 }
 
 const SendMessagesInput: React.FC<SendMessagesInputProps> = ({
   enterMessage,
   updateMsgBox,
 }) => {
+  // console.log("CHECK TYPE=", enterMessage);
+
   const handleKeyPress = (e: any) => {
     const cloneNewMSg = { ...enterMessage };
     const chatsList = cloneNewMSg.chat;

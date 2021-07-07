@@ -5,43 +5,49 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import { ChatData } from "../chatRoom/appData";
 import ConnectArea from "./contentArea";
 import { SearchCustom } from "../common/commonFunctions";
+import { Type } from "../chatRoom/appData";
 
-const chatList = ChatData();
+// const chatList = ChatData();
 export interface MainContainerProps {}
 
 const MainContainer: React.FC<MainContainerProps> = () => {
-  const [chatRoomList, setSearchResults] = useState(chatList);
-  const [updatedList, setUpdatedList] = useState(chatRoomList);
-  const [newChat, setNewChatThred] = useState("");
-  const [currentTitle, setChatTitle] = useState("");
+  const [chatRoomList, setSearchResults] = useState<Array<Type>>(ChatData());
+  const [updatedList, setUpdatedList] = useState<Array<Type>>(chatRoomList);
+  const [newChat, setNewChatThred] = useState<Type>();
+  const [currentTitle, setChatTitle] = useState<string>("");
 
   const fetchTitle = (value: string) => {
     setChatTitle(value);
   };
-  const getChat = (chatThread: any) => {
-    const cloneChatThread = { ...chatThread };
-    setNewChatThred(cloneChatThread);
+  const getChat = (chatThread: Type) => {
+    // const cloneChatThread: any = { ...chatThread };
+    setNewChatThred(chatThread);
   };
   const handleSearchResult = (value: string) => {
     setUpdatedList(SearchCustom(value, chatRoomList));
   };
-  const handleAddNewChatRoom = (chatRoom: any) => {
+  const handleAddNewChatRoom = (chatRoom: Array<Type>) => {
     setUpdatedList(chatRoom);
     setSearchResults(chatRoom);
   };
-  const updateChatBox = (e: any) => {
+  const updateChatBox = (e: Type) => {
     setNewChatThred(e);
   };
+  function getSidebar() {
+    return (
+      <SideBar
+        getChatTitle={fetchTitle}
+        getChat={getChat}
+        chatList={updatedList}
+        searhRoomResult={handleSearchResult}
+        addNewChatRoom={handleAddNewChatRoom}
+      />
+    );
+  }
   return (
     <div className="container custom-width effects">
       <div className="row">
-        <SideBar
-          getChatTitle={fetchTitle}
-          getChat={getChat}
-          chatList={updatedList}
-          searhRoomResult={handleSearchResult}
-          addNewChatRoom={handleAddNewChatRoom}
-        />
+        {getSidebar()}
         <Switch>
           <Route
             path="/chatroom"

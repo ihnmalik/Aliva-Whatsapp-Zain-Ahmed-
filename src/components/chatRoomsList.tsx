@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
+import { Type } from "../chatRoom/appData";
 
 export interface ChatRoomListProps {
-  sideBarList: any;
+  sideBarList: Array<Type>;
   chatTitle: (arg0: string) => void;
-  viewChat: (arg0: string) => void;
+  viewChat: (arg0: Type) => void;
 }
 
 const ChatRoomList: React.FC<ChatRoomListProps> = ({
@@ -11,7 +12,7 @@ const ChatRoomList: React.FC<ChatRoomListProps> = ({
   chatTitle,
   viewChat,
 }) => {
-  const fetchTitle = (userDetail: any) => {
+  const fetchTitle = (userDetail: Type) => {
     chatTitle(userDetail.title);
     viewChat(userDetail);
   };
