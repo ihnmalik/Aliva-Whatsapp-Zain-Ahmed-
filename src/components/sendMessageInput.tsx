@@ -1,4 +1,5 @@
-import * as React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "../ThemeContext";
 import { Type } from "../chatRoom/appData";
 // import { ChatDetails } from "../chatRoom/appData";
 export interface SendMessagesInputProps {
@@ -27,8 +28,10 @@ const SendMessagesInput: React.FC<SendMessagesInputProps> = ({
       e.target.value = "";
     }
   };
+  const theme = useContext(ThemeContext);
+  const darkMode = theme.state.darkMode;
   return (
-    <div className="sendMsgWrap">
+    <div className={darkMode ? "bg-dark-theme sendMsgWrap" : "sendMsgWrap"}>
       <div className="col-md-2" style={{ float: "left" }}>
         <i className="fa fa-smile-o fa-2x" aria-hidden="true"></i>
         <i className="fa fa-paperclip fa-2x" aria-hidden="true"></i>
@@ -38,7 +41,9 @@ const SendMessagesInput: React.FC<SendMessagesInputProps> = ({
           <div className="form-group">
             <input
               type="text"
-              className="form-control"
+              className={
+                darkMode ? "input-dark-theme form-control" : "form-control"
+              }
               placeholder="Type a message"
               onKeyPress={handleKeyPress}
             />

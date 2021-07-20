@@ -1,10 +1,19 @@
-import * as React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "../ThemeContext";
 
 export interface SidebarDropdownMenuProps {}
 
 const SidebarDropdownMenu: React.FC<SidebarDropdownMenuProps> = () => {
+  const theme = useContext(ThemeContext);
+  const darkMode = theme.state.darkMode;
   return (
-    <div className="dropdown float-right">
+    <div
+      className={
+        darkMode
+          ? "color-dark-theme dropdown float-right"
+          : "dropdown float-right"
+      }
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"

@@ -1,4 +1,5 @@
-import * as React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "../ThemeContext";
 import UserDetails from "./navbarChatboxUserDetails";
 import NavbarChatBoxDropdown from "./navbarChatBoxDropdown";
 import ChatBox from "./chatBox";
@@ -19,9 +20,15 @@ const ChatArea: React.FC<ChatAreaProps> = ({
   const updateMsgBox = (msg: Type) => {
     updateChat(msg);
   };
+  const theme = useContext(ThemeContext);
+  const darkMode = theme.state.darkMode;
   return (
     <div className="col-md-8 right-chat-section">
-      <nav className="navbar navbar-light bg-light">
+      <nav
+        className={
+          darkMode ? "bg-dark-theme navbar" : "navbar navbar-light bg-light"
+        }
+      >
         <UserDetails chatTitle={chatTitle} />
         <NavbarChatBoxDropdown />
       </nav>

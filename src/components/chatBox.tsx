@@ -1,4 +1,5 @@
-import * as React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "../ThemeContext";
 import { formatAMPM } from "../common/commonFunctions";
 // import { Type } from "../chatRoom/appData";
 import { ChatDetails } from "../chatRoom/appData";
@@ -8,10 +9,12 @@ export interface ChatBoxProps {
 }
 
 const ChatBox: React.FC<ChatBoxProps> = ({ newMessage }) => {
+  const theme = useContext(ThemeContext);
+  const darkMode = theme.state.darkMode;
   let messageChat: Array<ChatDetails> = newMessage.chat;
   let i: number = 1;
   return (
-    <div className="chatBoxBG">
+    <div className={darkMode ? "bg-image-dark-theme" : "chatBoxBG"}>
       <p className="box-alert">
         <svg
           className="MuiSvgIcon-root"

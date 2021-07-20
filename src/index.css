@@ -17,7 +17,7 @@ code {
     monospace;
 }
 .newchat-icon {
-  width: 10%;
+  width: 30px;
   float: right;
   cursor: pointer;
 }
@@ -67,7 +67,7 @@ code {
   overflow: scroll;
   padding-left: 15px;
   list-style: none;
-  background: white;
+  /* background: white; */
   margin-top: -16px;
   padding-left: 0;
 }
@@ -256,7 +256,7 @@ code {
 }
 .fa-smile-o,
 .fa-paperclip {
-  color: #565252;
+  color: #a79c9c;
   cursor: pointer;
   padding-top: 4px;
 }
@@ -272,7 +272,7 @@ code {
   overflow: hidden;
 }
 .fa-microphone {
-  color: #565252;
+  color: #a79c9c;
   cursor: pointer;
   padding-top: 4px;
 }
@@ -309,6 +309,7 @@ code {
   font-size: 14px;
   max-width: 390px;
   padding-top: 4px;
+  word-wrap: break-word;
 }
 .my-msg span {
   font-size: 12px;
@@ -352,4 +353,25 @@ code {
   margin-bottom: 15px !important;
   margin: auto;
   margin-top: 20px;
+}
+
+.bg-light-theme {
+  background-color: white !important;
+}
+.bg-dark-theme {
+  background-color: black !important;
+}
+.color-dark-theme {
+  color: white !important;
+}
+.color-light-theme {
+  color: black !important;
+}
+.input-dark-theme {
+  background-color: #c0bcbc !important;
+}
+.bg-image-dark-theme {
+  background-image: url(images/darkmode.jpg);
+  height: 82vh;
+  overflow-y: scroll;
 }

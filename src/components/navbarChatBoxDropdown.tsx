@@ -1,11 +1,20 @@
-import * as React from "react";
+import React, { useContext } from "react";
+import { ThemeContext } from "../ThemeContext";
 
 export interface NavbarChatBoxDropdownProps {}
 
 const NavbarChatBoxDropdown: React.FC<NavbarChatBoxDropdownProps> = () => {
+  const theme = useContext(ThemeContext);
+  const darkMode = theme.state.darkMode;
   return (
     <div className="col-md-6 nav-dd right-section navChatBoxDD">
-      <div className="dropdown float-right">
+      <div
+        className={
+          darkMode
+            ? "color-dark-theme dropdown float-right"
+            : "dropdown float-right"
+        }
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"

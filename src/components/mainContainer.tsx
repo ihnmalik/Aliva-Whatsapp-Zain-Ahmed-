@@ -15,7 +15,7 @@ const MainContainer: React.FC<MainContainerProps> = () => {
   const [updatedList, setUpdatedList] = useState<Array<Type>>(chatRoomList);
   const [newChat, setNewChatThred] = useState<Type>();
   const [currentTitle, setChatTitle] = useState<string>("");
-
+  console.log("DATA LIST", chatRoomList);
   const fetchTitle = (value: string) => {
     setChatTitle(value);
   };
