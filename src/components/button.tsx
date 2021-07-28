@@ -9,8 +9,8 @@ const SwitchButton: React.FC = () => {
     if (darkMode) theme.dispatch({ type: "LIGHTMODE" });
     else theme.dispatch({ type: "DARKMODE" });
   };
-  console.log("TESTTT", theme);
-  console.log("TESTTT2", theme.dispatch);
+  // console.log("TESTTT", theme);
+  // console.log("TESTTT2", theme.dispatch);
 
   return (
     <button
