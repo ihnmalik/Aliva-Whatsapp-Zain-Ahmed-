@@ -1,7 +1,6 @@
 import { put, takeEvery, all, call } from "redux-saga/effects";
 import axios from "axios";
 import * as actions from "./actionTypes";
-import { chatRoomList } from "./actions";
 function* datafetchAsync() {
   const { data } = yield call(
     axios.get,

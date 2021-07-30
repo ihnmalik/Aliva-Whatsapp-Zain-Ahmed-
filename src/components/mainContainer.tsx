@@ -1,23 +1,15 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import SideBar from "./sidebar";
 import ChatArea from "./chatArea";
 import { Route, Switch, Redirect } from "react-router-dom";
 import ConnectArea from "./contentArea";
 import { SearchCustom } from "../common/commonFunctions";
 import { Type } from "../chatRoom/appData";
-import store from "./redux-saga/store";
-import { useSelector, useDispatch } from "react-redux";
+import { connect } from "react-redux";
 import * as actions from "./redux-saga/actionTypes";
-// import { ChatData } from "../chatRoom/appData";
-export interface MainContainerProps {}
-const MainContainer: React.FC<MainContainerProps> = () => {
-  const dispatch = useDispatch();
-  const selector = (state: any) => ({
-    chat: state.chat,
-  });
-  const chatList = useSelector(selector); // ASYNC state update
-  const updatedState = store.getState(); // Updated Redux state
-  const [chatRoomList, setSearchResults] = useState<Array<Type>>(chatList.chat);
+
+const MainContainer = (props: any) => {
+  const [chatRoomList, setSearchResults] = useState<Array<Type>>(props.chat);
   const [updatedList, setUpdatedList] = useState<Array<Type>>([]);
   const [newChat, setNewChatThred] = useState<Type>();
   const [currentTitle, setChatTitle] = useState<string>("");
@@ -55,17 +47,16 @@ const MainContainer: React.FC<MainContainerProps> = () => {
 
   /* Use Effect function For SAGA action Start */
   useEffect(() => {
-    dispatch({
-      type: actions.ASYNC_START,
-    });
+    props.changeChat();
   }, []);
   /* Use Effect function For SAGA End */
 
   /* Use Effect For to update local states after updating state in Redux Start */
   useEffect(() => {
-    setUpdatedList(chatList.chat);
-    setSearchResults(chatList.chat);
-  }, [updatedState]);
+    setUpdatedList(props.chat);
+    setSearchResults(props.chat);
+  }, [props.chat]);
+
   /* Use Effect For to update local states after updating state in Redux End */
 
   function getSidebar() {
@@ -102,5 +93,12 @@ const MainContainer: React.FC<MainContainerProps> = () => {
     </div>
   );
 };
-
-export default MainContainer;
+const mapStateToProps = (state: any) => ({
+  chat: state.chat,
+});
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+    changeChat: () => dispatch({ type: actions.ASYNC_START }),
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(MainContainer);
