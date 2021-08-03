@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { Type } from "../chatRoom/appData";
+import { ThemeContext } from "./themeContext";
+import { useContext } from "react";
 
 export interface ChatRoomListProps {
   sideBarList: Array<Type>;
@@ -16,11 +18,12 @@ const ChatRoomList: React.FC<ChatRoomListProps> = ({
     chatTitle(userDetail.title);
     viewChat(userDetail);
   };
+  const theme = useContext(ThemeContext);
 
   return (
-    <ul className="chat-list">
+    <ul className="chat-list"  style={{ background: theme.background, color: theme.foreground }}>
       {sideBarList.map((chats: any) => (
-        <Link key={chats._id} to="/chatroom" onClick={() => fetchTitle(chats)}>
+        <Link key={chats._id} to="/chatroom" onClick={() => fetchTitle(chats)}  style={{ color: theme.foreground }}>
           <li>
             <div>
               <span>{chats.title.charAt(0)}</span>

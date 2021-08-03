@@ -1,4 +1,6 @@
-import * as React from "react";
+import React, {useContext} from "react";
+import { ThemeContext } from "./themeContext";
+
 import { Type } from "../chatRoom/appData";
 // import { ChatDetails } from "../chatRoom/appData";
 export interface SendMessagesInputProps {
@@ -27,8 +29,10 @@ const SendMessagesInput: React.FC<SendMessagesInputProps> = ({
       e.target.value = "";
     }
   };
+  const theme = useContext(ThemeContext);
+
   return (
-    <div className="sendMsgWrap">
+    <div className="sendMsgWrap" style={{ background: theme.background, color: theme.foreground }}>
       <div className="col-md-2" style={{ float: "left" }}>
         <i className="fa fa-smile-o fa-2x" aria-hidden="true"></i>
         <i className="fa fa-paperclip fa-2x" aria-hidden="true"></i>

@@ -48,7 +48,7 @@ code {
   color: #aaa;
 }
 .bg-light {
-  background-color: #efeff0 !important;
+  /* background-color: #efeff0; */
 }
 .form-group.has-search {
   padding: 7px;
@@ -57,7 +57,7 @@ code {
   background: #fef9f9;
 }
 .navbar.bg-light {
-  background-color: #efeff0 !important;
+  /* background-color: #efeff0 !important; */
 }
 .form-group.has-search input {
   border-radius: 20px;
@@ -268,7 +268,7 @@ code {
 }
 .sendMsgWrap {
   padding-top: 9px;
-  background-color: #efeff0 !important;
+  background-color: #efeff0;
   overflow: hidden;
 }
 .fa-microphone {

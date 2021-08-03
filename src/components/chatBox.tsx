@@ -1,7 +1,8 @@
-import * as React from "react";
+import React, {useContext}from "react";
 import { formatAMPM } from "../common/commonFunctions";
 // import { Type } from "../chatRoom/appData";
 import { ChatDetails } from "../chatRoom/appData";
+import { ThemeContext } from "./themeContext";
 
 export interface ChatBoxProps {
   newMessage: any;
@@ -10,9 +11,11 @@ export interface ChatBoxProps {
 const ChatBox: React.FC<ChatBoxProps> = ({ newMessage }) => {
   let messageChat: Array<ChatDetails> = newMessage.chat;
   let i: number = 1;
+  const theme = useContext(ThemeContext);
+
   return (
-    <div className="chatBoxBG">
-      <p className="box-alert">
+    <div className="chatBoxBG" style={{ background: theme.background, color: theme.foreground }}>
+      <p className="box-alert" style={{ background: theme.background, color: theme.foreground }}>
         <svg
           className="MuiSvgIcon-root"
           focusable="false"
@@ -29,8 +32,7 @@ const ChatBox: React.FC<ChatBoxProps> = ({ newMessage }) => {
           className={messages.msg === "" ? "d-none" : "chat-messages"}
         >
           <p
-            className={messages.userId % 2 === 0 ? "my-msg" : "other-user-msg"}
-          >
+            className={messages.userId % 2 === 0 ? "my-msg" : "other-user-msg"} style={{ background: theme.background, color: theme.foreground }}>
             {messages.msg}
             <span>{formatAMPM(new Date())}</span>
           </p>

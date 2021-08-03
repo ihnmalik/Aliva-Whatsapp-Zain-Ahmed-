@@ -11,7 +11,7 @@ export interface ChatDetails {
   msg?: string;
 }
 
-const dataChat: Array<Type> = [
+export const dataChat: Array<Type> = [
   {
     _id: 1,
     title: "Test Chat Room",
@@ -193,6 +193,6 @@ const dataChat: Array<Type> = [
     ],
   },
 ];
-export function ChatData() {
-  return dataChat;
-}
+// export function ChatData() {
+//   return dataChat;
+// }
